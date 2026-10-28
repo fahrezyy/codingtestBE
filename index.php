@@ -583,7 +583,7 @@ elseif (preg_match('/^api\/products\/(\d+)$/', $requestUri, $matches)) {
 
     if ($method === 'PUT') {
         authenticate();
-        $input = json_decode(file_get_contents('php://input'), data: true);
+        $input = json_decode(file_get_contents('php://input'), true);
 
         if (empty($input['name']) || empty($input['description']) || !isset($input['price']) || empty($input['category']) || empty($input['status'])) {
             sendResponse(422, 'Validasi Gagal: Semua field wajib diisi.');
